@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_info/components/genreCard.dart';
 
 import '../../../constants.dart';
 
@@ -24,21 +25,9 @@ class _GenresState extends State<Genres> {
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: genres.length,
-          itemBuilder: (context, index) {
-            return Container(
-                alignment: Alignment.center,
-                margin: EdgeInsets.only(left: kDefaultPadding),
-                padding: EdgeInsets.symmetric(
-                    horizontal: kDefaultPadding, vertical: kDefaultPadding / 4),
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black12),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Text(
-                  genres[index],
-                  style: TextStyle(
-                      color: kTextColor.withOpacity(0.8), fontSize: 16),
-                ));
-          }),
+          itemBuilder: (context, index) => GenreCard(
+                genre: genres[index],
+              )),
     );
   }
 }
